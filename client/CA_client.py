@@ -37,7 +37,7 @@ def save_certificate(cert, filename):
        f.write(cert.public_bytes(serialization.Encoding.PEM))
 def store_in_ldap(cert, client_id):
 
-    ldap_conn = ldap.initialize("ldap://25.1.91.86:389")
+    ldap_conn = ldap.initialize("ldap://172.0.0.1:389")
     ldap_conn.protocol_version = ldap.VERSION3
     ldap_conn.simple_bind_s("cn=admin,dc=tekuplive", "admin")
 
@@ -80,7 +80,7 @@ def callback(ch, method, properties, body):
 
 def  certif_handling(client_id):
     credentials = pika.PlainCredentials('root','root')
-    connection = pika.BlockingConnection(pika.ConnectionParameters('25.1.91.86',5672,'/',credentials))
+    connection = pika.BlockingConnection(pika.ConnectionParameters('172.0.0.1',5672,'/',credentials))
     channel = connection.channel()
 
     channel.queue_declare(queue="client_id")

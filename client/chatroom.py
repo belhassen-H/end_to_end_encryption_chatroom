@@ -19,7 +19,7 @@ print("aaa:",str(sys.argv))
 nickname = sys.argv[1]
 
 credentials = pika.PlainCredentials('root','root')
-connection = pika.BlockingConnection(pika.ConnectionParameters('25.1.91.86',5672,'/',credentials))
+connection = pika.BlockingConnection(pika.ConnectionParameters('172.0.0.1',5672,'/',credentials))
 channel = connection.channel()
 
 channel.queue_declare(queue=nickname)
@@ -114,7 +114,7 @@ def getUserCert(uid):
     ldap_admin = 'cn=admin,dc=tekuplive'
     ldap_admin_pw = 'admin'
     user_dn = f"cn={uid},{LDAP_BASE_DN}"
-    ldap_client = ldap.initialize("ldap://25.1.91.86:389")
+    ldap_client = ldap.initialize("ldap://172.0.0.1:389")
     ldap_client.bind_s(ldap_admin, ldap_admin_pw)
     try:
         result = ldap_client.search_s(user_dn, ldap.SCOPE_BASE)

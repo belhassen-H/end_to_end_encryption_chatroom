@@ -33,7 +33,7 @@ def register(numC_entry,nom_entry,prenom_entry,email_entry,login_entry,genre_ent
         ("title", genre.encode("UTF-8")),
         ('userPassword', hashed_pwd.encode("UTF-8"))]
 
-    ldap_conn = ldap.initialize("ldap://25.1.91.86:389")
+    ldap_conn = ldap.initialize("ldap://172.0.0.1:389")
     ldap_conn.protocol_version = ldap.VERSION3
     ldap_conn.simple_bind_s("cn=admin,dc=tekuplive", "admin")
 

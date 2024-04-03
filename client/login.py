@@ -20,7 +20,7 @@ def login():
     search_filter = f"(cn={username})"
     hashed_pwd = hashlib.sha256(password.encode("UTF-8")).hexdigest()
 
-    ldap_client = ldap.initialize("ldap://25.1.91.86:389")
+    ldap_client = ldap.initialize("ldap://172.0.0.1:389")
 
     try:
         ldap_client.bind_s(user_dn, hashed_pwd)
