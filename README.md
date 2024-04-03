@@ -1,1 +1,1 @@
-[[chatroom.png]]
+![[chatroom.png]]
